@@ -1,1 +1,54 @@
+-- [5/8] FASTFLAGS SYSTEM
+local FlagsFrame = Instance.new("ScrollingFrame")
+FlagsFrame.Size = UDim2.new(1, 0, 1, 0)
+FlagsFrame.BackgroundTransparency = 1
+FlagsFrame.ScrollBarThickness = 5
+FlagsFrame.Visible = false
+FlagsFrame.Parent = ContentFrame
 
+-- Search Bar
+local SearchBar = Instance.new("TextBox")
+SearchBar.PlaceholderText = "Search FastFlags..."
+SearchBar.Size = UDim2.new(0.8, 0, 0.06, 0)
+SearchBar.Position = UDim2.new(0.1, 0, 0.02, 0)
+SearchBar.BackgroundColor3 = Color3.fromRGB(50, 50, 70) -- #323246
+SearchBar.TextColor3 = Color3.new(1,1,1)
+SearchBar.Font = Enum.Font.SourceSans
+SearchBar.TextSize = 14
+SearchBar.Parent = FlagsFrame
+
+-- Sample Flag Entry
+local function CreateFlagEntry(flagName, flagType, defaultValue, yPos)
+    local FlagFrame = Instance.new("Frame")
+    FlagFrame.Size = UDim2.new(0.95, 0, 0.08, 0)
+    FlagFrame.Position = UDim2.new(0.025, 0, 0, yPos)
+    FlagFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- #2d2d2d
+    FlagFrame.Parent = FlagsFrame
+
+    local FlagLabel = Instance.new("TextLabel")
+    FlagLabel.Text = flagName
+    FlagLabel.TextColor3 = Color3.new(1,1,1)
+    FlagLabel.TextXAlignment = Enum.TextXAlignment.Left
+    FlagLabel.Size = UDim2.new(0.65, 0, 1, 0)
+    FlagLabel.Position = UDim2.new(0.05, 0, 0, 0)
+    FlagLabel.BackgroundTransparency = 1
+    FlagLabel.Font = Enum.Font.SourceSans
+    FlagLabel.TextSize = 14
+    FlagLabel.Parent = FlagFrame
+
+    if flagType == "bool" then
+        local Toggle = Instance.new("TextButton")
+        Toggle.Text = defaultValue and "ON" or "OFF"
+        Toggle.Size = UDim2.new(0.2, 0, 0.7, 0)
+        Toggle.Position = UDim2.new(0.75, 0, 0.15, 0)
+        Toggle.BackgroundColor3 = defaultValue and Color3.fromRGB(50, 120, 50) or Color3.fromRGB(120, 50, 50)
+        Toggle.TextColor3 = Color3.new(1,1,1)
+        Toggle.Font = Enum.Font.SourceSans
+        Toggle.TextSize = 14
+        Toggle.Parent = FlagFrame
+    end
+end
+
+-- Add sample flags
+CreateFlagEntry("FFlagDebugGraphicsDisable", "bool", false, 0.09)
+CreateFlagEntry("DFIntTaskSchedulerTargetFps", "number", 60, 0.18)

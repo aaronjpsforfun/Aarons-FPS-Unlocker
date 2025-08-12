@@ -1,1 +1,26 @@
+-- [2/8] TAB SYSTEM
+local TabButtons = Instance.new("Frame")
+TabButtons.Size = UDim2.new(1, 0, 0.0678, 0)
+TabButtons.Position = UDim2.new(0, 0, 0.0678, 0)
+TabButtons.BackgroundColor3 = Color3.fromRGB(40, 40, 40) -- #282828
+TabButtons.Parent = MainFrame
 
+local Tabs = {
+    "MAIN", 
+    "APPEARANCE", 
+    "FAST FLAGS", 
+    "DISCORD", 
+    "ADVANCED"
+}
+
+for i, tab in ipairs(Tabs) do
+    local Tab = Instance.new("TextButton")
+    Tab.Text = tab
+    Tab.Size = UDim2.new(0.2, 0, 1, 0)
+    Tab.Position = UDim2.new(0.2 * (i-1), 0, 0, 0)
+    Tab.BackgroundColor3 = i == 1 and Color3.fromRGB(60, 60, 60) or Color3.fromRGB(40, 40, 40)
+    Tab.TextColor3 = Color3.new(1,1,1)
+    Tab.Font = Enum.Font.SourceSans
+    Tab.TextSize = 16
+    Tab.Parent = TabButtons
+end

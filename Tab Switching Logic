@@ -1,1 +1,8 @@
-
+-- [8/8] TAB FUNCTIONALITY
+for i, tabName in ipairs(Tabs) do
+    local TabButton = TabButtons:GetChildren()[i]
+    TabButton.MouseButton1Click:Connect(function()
+        FlagsFrame.Visible = tabName == "FAST FLAGS"
+        -- Add other tab visibility toggles here
+    end)
+end

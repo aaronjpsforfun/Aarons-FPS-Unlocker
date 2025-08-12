@@ -1,1 +1,28 @@
+-- [6/8] PRESET SYSTEM
+local PresetFrame = Instance.new("Frame")
+PresetFrame.Size = UDim2.new(1, -10, 0.12, 0)
+PresetFrame.Position = UDim2.new(0, 5, 0.88, 0)
+PresetFrame.BackgroundTransparency = 1
+PresetFrame.Parent = ContentFrame
 
+local PresetLabel = Instance.new("TextLabel")
+PresetLabel.Text = "PRESETS:"
+PresetLabel.TextColor3 = Color3.new(1,1,1)
+PresetLabel.Size = UDim2.new(0.15, 0, 1, 0)
+PresetLabel.BackgroundTransparency = 1
+PresetLabel.Font = Enum.Font.SourceSansBold
+PresetLabel.TextSize = 14
+PresetLabel.Parent = PresetFrame
+
+local Presets = {"Performance", "Graphics", "Custom 1", "Custom 2"}
+for i, preset in ipairs(Presets) do
+    local Button = Instance.new("TextButton")
+    Button.Text = preset
+    Button.Size = UDim2.new(0.2, 0, 0.8, 0)
+    Button.Position = UDim2.new(0.15 + (i-1)*0.21, 0, 0.1, 0)
+    Button.BackgroundColor3 = Color3.fromRGB(60, 60, 80) -- #3c3c50
+    Button.TextColor3 = Color3.new(1,1,1)
+    Button.Font = Enum.Font.SourceSans
+    Button.TextSize = 14
+    Button.Parent = PresetFrame
+end

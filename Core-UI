@@ -1,1 +1,34 @@
+-- [1/8] CORE UI
+local Player = game:GetService("Players").LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
 
+-- Cleanup
+if PlayerGui:FindFirstChild("Bloxstrap") then
+    PlayerGui.Bloxstrap:Destroy()
+end
+
+-- Main Container
+local Bloxstrap = Instance.new("ScreenGui")
+Bloxstrap.Name = "Bloxstrap"
+Bloxstrap.ResetOnSpawn = false
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0.472, 0, 0.618, 0) -- Exact Bloxstrap dimensions
+MainFrame.Position = UDim2.new(0.264, 0, 0.191, 0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 36) -- #242424
+MainFrame.Parent = Bloxstrap
+
+-- Title Bar
+local TitleBar = Instance.new("Frame")
+TitleBar.Size = UDim2.new(1, 0, 0.0678, 0)
+TitleBar.BackgroundColor3 = Color3.fromRGB(28, 28, 28) -- #1c1c1c
+TitleBar.Parent = MainFrame
+
+local Title = Instance.new("TextLabel")
+Title.Text = "Bloxstrap"
+Title.TextColor3 = Color3.new(1,1,1)
+Title.Font = Enum.Font.SourceSansBold
+Title.TextSize = 18
+Title.Size = UDim2.new(1, 0, 1, 0)
+Title.BackgroundTransparency = 1
+Title.Parent = TitleBar

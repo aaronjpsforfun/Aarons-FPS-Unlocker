@@ -1,1 +1,12 @@
+-- [7/8] FINALIZATION
+local Footer = Instance.new("TextLabel")
+Footer.Text = "Bloxstrap v2.1.4"
+Footer.TextColor3 = Color3.fromRGB(150, 150, 150) -- #969696
+Footer.TextSize = 12
+Footer.Size = UDim2.new(1, 0, 0.05, 0)
+Footer.Position = UDim2.new(0, 0, 0.95, 0)
+Footer.BackgroundTransparency = 1
+Footer.Font = Enum.Font.SourceSans
+Footer.Parent = MainFrame
 
+Bloxstrap.Parent = PlayerGui
